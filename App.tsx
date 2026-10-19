@@ -1,20 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { MatchesScreen } from './src/screens/MatchesScreen';
 
 export default function App() {
   return (
-    <View style={styles.root}>
-      <MatchesScreen />
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.root}>
+        <MatchesScreen />
+        <StatusBar style="dark" />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    paddingTop: 48,
     backgroundColor: '#f8fafc',
   },
 });
